@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 
-const SectionTitle = ({ title, barColor = 'primary.main', sx }) => {
+const SectionTitle = ({ title, barColor = 'primary.main', titleSize = 'h5', sx }) => {
   return (
     <Box
       sx={{
@@ -20,7 +20,7 @@ const SectionTitle = ({ title, barColor = 'primary.main', sx }) => {
         }}
       />
       {/* TITLE  */}
-      <Typography variant="h5">{title}</Typography>
+      <Typography variant={titleSize}>{title}</Typography>
     </Box>
   )
 }
