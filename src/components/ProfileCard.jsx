@@ -42,7 +42,6 @@ const ProfileCard = ({
       <Card
         sx={{
           cursor: 'pointer',
-          cursor: 'pointer',
           transition: 'transform 0.2s, box-shadow 0.2s',
           '&:hover': {
             transform: 'scale(1.02)',
