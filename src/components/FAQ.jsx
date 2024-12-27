@@ -80,7 +80,8 @@ const FAQ = () => {
           id="faq4-header"
         >
           <Typography variant="h6">
-            Quais são os <strong>benefícios</strong> de contratar um empresa júnior?
+            Quais são os <strong>benefícios</strong> de contratar um empresa
+            júnior?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>

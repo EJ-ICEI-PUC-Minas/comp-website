@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Team from './pages/Team'
 import Apply from './pages/Apply'
+import ProjectSubmission from './pages/ProjectSubmission'
 
 const theme = createTheme({
   palette: {
@@ -28,6 +29,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/sobre" element={<About />} />
           <Route path="/equipe" element={<Team />} />
           <Route path="/torna-se-parte" element={<Apply />} />
+          <Route path="/desenvolva" element={<ProjectSubmission />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

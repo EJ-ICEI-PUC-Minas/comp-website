@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Alert, Grid, Divider } from '@mui/material'
-import CVForm from '../components/CVForm'
+import CVForm from '../components/forms/CVForm'
 import SectionTitle from '../components/SectionTitle'
 
 import WorkIcon from '@mui/icons-material/Work'
@@ -54,7 +54,7 @@ const Apply = () => {
             </Alert>
           </Box>
           <Box sx={{ py: 1 }}>
-            <SectionTitle title="Benefícios de Entrar em na COMP" />
+            <SectionTitle title="Benefícios de Entrar na COMP" />
             <Divider sx={{ my: 1.5 }} />
             <Grid container spacing={1}>
               {benefits.map((benefit, index) => (

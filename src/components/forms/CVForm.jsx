@@ -12,26 +12,18 @@ import {
 } from '@mui/material'
 import { styled } from '@mui/system'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
+import NameField from '../inputs/NameField'
+import PhoneNumberField from '../inputs/PhoneNumberField'
 
 const Input = styled('input')({
   display: 'none',
 })
 
-const courses = [
-  'Ciência da Computação',
-  'Engenharia de Software',
-  'Ciência de Dados',
-]
-const periods = [
-  '1º Semestre',
-  '2º Semestre',
-  '3º Semestre',
-  '4º Semestre',
-  '5º Semestre',
-  '6º Semestre',
-  '7º Semestre',
-  '8º Semestre',
-]
+const coursesWithPeriods = {
+  'Ciência da Computação': 8,
+  'Engenharia de Software': 10,
+  'Ciência de Dados': 4,
+}
 
 const CVForm = () => {
   const [formData, setFormData] = useState({
@@ -47,6 +39,8 @@ const CVForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+
+    if (name === 'course') setFormData((prev) => ({ ...prev, period: '' }))
   }
 
   const handleFileChange = (e) => {
@@ -58,36 +52,28 @@ const CVForm = () => {
     console.log('Form Data:', formData)
   }
 
+  const generatePeriods = (course) => {
+    const totalPeriods = coursesWithPeriods[course] || 0
+    const periods = Array.from(
+      { length: totalPeriods },
+      (_, i) => `${i + 1}º Semestre`
+    )
+    return [...periods, 'Irregular']
+  }
+
   return (
-    <Card sx={{ p: 3, boxShadow: 3, borderRadius: 2, }}>
+    <Card sx={{ p: 3, boxShadow: 3, borderRadius: 2 }}>
       <Typography variant="h5" gutterBottom align="center">
         Formulário de Inscrição
       </Typography>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <TextField
-              fullWidth
-              label="Nome Completo"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              variant="outlined"
-              required
-            />
+            <NameField />
           </Grid>
 
           <Grid item xs={12}>
-            <TextField
-              fullWidth
-              label="Telefone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              variant="outlined"
-              type="tel"
-              required
-            />
+            <PhoneNumberField />
           </Grid>
 
           <Grid item xs={12}>
@@ -124,7 +110,7 @@ const CVForm = () => {
                   onChange={handleChange}
                   required
                 >
-                  {courses.map((course) => (
+                  {Object.keys(coursesWithPeriods).map((course) => (
                     <MenuItem key={course} value={course}>
                       {course}
                     </MenuItem>
@@ -143,8 +129,9 @@ const CVForm = () => {
                   name="period"
                   onChange={handleChange}
                   required
+                  disabled={!formData.course}
                 >
-                  {periods.map((period) => (
+                  {generatePeriods(formData.course).map((period) => (
                     <MenuItem key={period} value={period}>
                       {period}
                     </MenuItem>
