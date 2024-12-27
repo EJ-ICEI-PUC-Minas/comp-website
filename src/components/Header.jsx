@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   AppBar,
   Toolbar,
@@ -7,40 +7,42 @@ import {
   MenuItem,
   Box,
   Button,
-} from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
-import { NavLink, useNavigate } from 'react-router-dom'
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const open = Boolean(anchorEl)
-  const navigate = useNavigate()
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const navigate = useNavigate();
+  const theme = useTheme();
 
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
+    setAnchorEl(event.currentTarget);
+  };
 
   const handleClose = () => {
-    setAnchorEl(null)
-  }
+    setAnchorEl(null);
+  };
 
   const handleNavigate = (path) => {
-    navigate(path)
-    handleClose()
-  }
+    navigate(path);
+    handleClose();
+  };
 
   const linkStyle = {
     textDecoration: 'none',
     color: 'inherit',
-  }
+  };
 
   const activeStyle = {
     fontWeight: 'bold',
-    borderBottom: '2px solid rgb(190, 178, 178)',
-  }
+    borderBottom: `2px solid ${theme.palette.secondary.main}`,
+  };
 
   return (
-    <AppBar position="static">
+    <AppBar>
       <Toolbar
         sx={{
           display: 'flex',
@@ -114,7 +116,12 @@ const Header = () => {
               <MenuItem
                 key={index}
                 onClick={() => handleNavigate(path)}
-                sx={({ isActive }) => (isActive ? activeStyle : {})}
+                sx={{
+                  fontWeight: 'bold',
+                  ...(path === window.location.pathname && {
+                    borderBottom: `2px solid ${theme.palette.secondary.main}`,
+                  }),
+                }}
               >
                 {path === '/sobre' && 'Sobre'}
                 {path === '/equipe' && 'Equipe'}
@@ -126,7 +133,7 @@ const Header = () => {
         </Menu>
       </Toolbar>
     </AppBar>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

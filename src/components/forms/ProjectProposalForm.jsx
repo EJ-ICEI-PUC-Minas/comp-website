@@ -16,7 +16,7 @@ import NameField from '../inputs/NameField'
 const ProjectProposalForm = () => {
   return (
     <form noValidate autoComplete="off">
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         <Grid item xs={12} md={6}>
           <NameField />
         </Grid>
@@ -29,7 +29,7 @@ const ProjectProposalForm = () => {
         fullWidth
         label="O que você quer construir?"
         variant="outlined"
-        margin="normal"
+        margin="dense"
         multiline
         rows={3}
       />
@@ -38,12 +38,12 @@ const ProjectProposalForm = () => {
         fullWidth
         label="Quais seriam as funcionalidades da sua aplicação?"
         variant="outlined"
-        margin="normal"
+        margin="dense"
         multiline
         rows={4}
       />
       
-      <FormControl component="fieldset" margin="normal" fullWidth>
+      <FormControl component="fieldset" margin="dense" fullWidth>
         <FormLabel component="legend">
           Já tem identidade visual pronta?
         </FormLabel>
@@ -62,7 +62,7 @@ const ProjectProposalForm = () => {
         fullWidth
         label="Qual é seu orçamento disponível?"
         variant="outlined"
-        margin="normal"
+        margin="dense"
       />
 
       <Box textAlign="center" marginTop="1rem">

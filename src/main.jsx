@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
+import { createTheme, CssBaseline, ThemeProvider, Toolbar } from '@mui/material'
 
 import Header from './components/Header'
 
@@ -24,6 +24,7 @@ createRoot(document.getElementById('root')).render(
       <CssBaseline />
       <BrowserRouter>
         <Header />
+        <Toolbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<About />} />
