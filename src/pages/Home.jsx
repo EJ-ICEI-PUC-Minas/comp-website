@@ -6,10 +6,17 @@ import {
   CardContent,
   Typography,
   Box,
+  Paper,
+  Button,
+  Stack,
 } from '@mui/material'
 
+import backgroundIMG from '../assets/background.png'
+
+// COMPONENTS
 import FAQ from '../components/FAQ'
 
+// ICONS
 import BrandingWatermarkIcon from '@mui/icons-material/BrandingWatermark'
 import AppShortcutIcon from '@mui/icons-material/AppShortcut'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
@@ -44,12 +51,59 @@ const Home = () => {
       <Box
         component="section"
         sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          textAlign: 'center',
+          minHeight: '100vh',
+          color: '#fff',
+          backgroundImage: backgroundIMG,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          padding: 4,
+        }}
+      >
+        <Typography variant="h3" sx={{ fontWeight: 'bold', marginBottom: 2 }}>
+          Conheça a COMP
+        </Typography>
+        <Typography variant="subtitle1" sx={{ marginBottom: 4 }}>
+          A empresa júnior de computação da PUC Minas
+        </Typography>
+        <Stack direction="row" spacing={2}>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: '#0056FF',
+              '&:hover': { backgroundColor: '#003FC5' },
+            }}
+          >
+            Nossos Projetos
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{
+              borderColor: '#0056FF',
+              color: '#0056FF',
+              '&:hover': {
+                backgroundColor: '#003FC5',
+                color: '#fff',
+              },
+            }}
+          >
+            Nossos Valores
+          </Button>
+        </Stack>
+      </Box>
+      <Box
+        component="section"
+        sx={{
           backgroundColor: '#000',
           color: '#fff',
           py: 8,
         }}
       >
-        <Container maxWidth="lg">
+        <Container>
           <Typography variant="h5" align="center">
             Nossos serviços
           </Typography>
@@ -57,7 +111,7 @@ const Home = () => {
           <Typography
             variant="h3"
             align="center"
-            fontWeight='bold'
+            fontWeight="bold"
             gutterBottom
           >
             O que fazemos de melhor.
@@ -68,9 +122,9 @@ const Home = () => {
             align="center"
             sx={{ maxWidth: 600, margin: '0 auto', pb: 4 }}
           >
-            Oferecemos soluções em tecnologia para transformar ideias
-            em realidade. Nosso foco é criar experiências digitais que
-            impulsionam negócios e entregam resultados.
+            Oferecemos soluções em tecnologia para transformar ideias em
+            realidade. Nosso foco é criar experiências digitais que impulsionam
+            negócios e entregam resultados.
           </Typography>
 
           <Grid container spacing={4} justifyContent="center">
@@ -102,8 +156,24 @@ const Home = () => {
           </Grid>
         </Container>
       </Box>
-      <Container maxWidth="md" style={{ marginTop: '2rem' }}>
-        <FAQ />
+      <Container>
+        <Box
+          component="section"
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            gap: 2,
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Box sx={{ padding: 2, flex: 2 }}>
+            <FAQ />
+          </Box>
+          <Paper sx={{ padding: 2, flex: 1 }}>
+            <img src="" alt="graph" />
+          </Paper>
+        </Box>
       </Container>
     </>
   )

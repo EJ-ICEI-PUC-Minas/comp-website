@@ -13,7 +13,7 @@ const ProjectSubmission = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: '90vh',
+        minHeight: '86vh',
       }}
     >
       <ParticlesBackground />
@@ -29,7 +29,7 @@ const ProjectSubmission = () => {
           sx={{
             padding: 4,
             borderRadius: 2,
-            backgroundColor: alpha(theme.palette.background.paper, 0.9),
+            backgroundColor: alpha(theme.palette.background.paper, 0.95),
           }}
         >
           <Typography variant="h4" gutterBottom align="center">

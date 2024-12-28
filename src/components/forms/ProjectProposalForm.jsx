@@ -42,7 +42,7 @@ const ProjectProposalForm = () => {
         multiline
         rows={4}
       />
-      
+
       <FormControl component="fieldset" margin="dense" fullWidth>
         <FormLabel component="legend">
           Já tem identidade visual pronta?
